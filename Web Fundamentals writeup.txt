@@ -1,0 +1,82 @@
+
+Room Name-Web Fundamentals 
+
+How do we load websites?
+--------------------------------------------------
+What request verb is used to retrieve page content?
+GET
+
+What port do web servers normally listen on?
+80
+
+What's responsible for making websites look fancy?
+CSS
+
+-------------------------------------------------
+-------------------------------------------------
+
+More HTTP - Verbs and request formats
+--------------------------------------
+What verb would be used for a login?
+POST
+
+What verb would be used to see your bank balance once you're logged in?
+GET
+
+Does the body of a GET request matter? Yea/Nay
+Nay
+
+What's the status code for "I'm a teapot"?
+418
+
+What status code will you get if you need to authenticate to access some content, and you're unauthenticated?
+401
+
+-------------------------------------------------
+-------------------------------------------------
+
+Mini CTF
+-----------------------------------------
+
+What's the GET flag?
+sneha@kali:~$ curl -X GET http://10.10.73.90:8081/ctf/get
+thm{162520bec925bd7979e9ae65a725f99f}
+-------
+What's the POST flag?
+sneha@kali:~$ curl -X POST  http://10.10.73.90:8081/ctf/post --data flag_please
+thm{3517c902e22def9c6e09b99a9040ba09}
+-------
+What's the "Get a cookie" flag?
+sneha@kali:~$ curl -X GET http://10.10.73.90:8081/ctf/getcookie
+Check your cookies!
+sneha@kali:~$ curl -v http://10.10.73.90:8081/ctf/getcookie
+*   Trying 10.10.73.90:8081...
+* Connected to 10.10.73.90 (10.10.73.90) port 8081 (#0)
+> GET /ctf/getcookie HTTP/1.1
+> Host: 10.10.73.90:8081
+> User-Agent: curl/7.72.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Set-Cookie: flag=thm{91b1ac2606f36b935f465558213d7ebd}; Path=/
+< Date: Fri, 13 Nov 2020 10:32:25 GMT
+< Content-Length: 19
+< Content-Type: text/plain; charset=utf-8
+< 
+* Connection #0 to host 10.10.73.90 left intact
+Check your cookies!sneha@kali:~$ 
+--flag=thm{91b1ac2606f36b935f465558213d7ebd}
+-----------
+What's the "Set a cookie" flag?
+sneha@kali:~$ curl -b 'flagpls=flagpls' http://10.10.73.90:8081/ctf/sendcookie
+thm{c10b5cb7546f359d19c747db2d0f47b3}
+
+
+----------
+Web Fundamentals - I have just completed this room! Check it out:  https://tryhackme.com/room/webfundamentals #tryhackme #web #HTTP #CTF #beginner #cookie #webapp #dns #website #webfundamentals via @realtryhackme 
+
+
+
+
+
